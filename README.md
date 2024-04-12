@@ -1,6 +1,5 @@
 # CHiLS
 
-
 ## Practical Example of CHILS:
 
 Please read the original author's README after my note below:
@@ -19,8 +18,7 @@ elif dataset.lower() == "eurosat":
     data = esat_idx(data_dir, transform=transform, download=True)
 ```
 
-After downloading, you need to extract it manually.
-
+After downloading, you need to extract it manually (right click and choose extract here).
 
  ------
 
@@ -29,6 +27,10 @@ After downloading, you need to extract it manually.
 **Note:** I installed Linux Ubuntu 22.04 and created a conda environment using `environment.yml` from this GitHub repository after cloning. My laptop has an NVIDIA RTX 3050 GPU. Therefore, you need to have an NVIDIA GPU because this project uses CUDA. When you install an updated version of Ubuntu, it will automatically install your graphics driver. So, you just need to create an environment on conda using my `environment.yml` file. I used CUDA 11.8, so you can find the syntax from the original website if it does not work.
 
 1. **`run.py`** will test your dataset and create a folder named after the architecture (e.g., `ClipViTL14`) in the working directory. It will contain a file in `.npz` format. Additionally, `run.py` will create a checkpoint in the `outputs` folder.
+To run the code this is my steps in terminal:
+a) conda activate clip-hierarchy
+b) cd CHILS
+c) python run.py
 
 2. **`zshot.py`** will create a file like `food-101-ClipViTL14-gpt-10-normal` in the `outputs` folder to show you a report like this:
    - Superclass: 93.87%
