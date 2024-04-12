@@ -9,7 +9,7 @@ I have included the `food-101` dataset in the codes and updated it with new pack
 ### Configuration needed:
 - **Folder `config`**, file `config.yaml`: Specify the path and architecture.
 - **Folder `config/datamodule`**, file `data.yaml`: If your GPU does not support a batch size of 64, change it to 32. Also, change `src/datamodule.py` (you need to change two parameters from 64 to 32).
-- **Folder `src`**, file `extract_feats.py`: Change the `base_task` dataset. See `data_utils.py` for options. This parameter can be changed to other datasets such as `cifar100`, `fruits360`, `eurosat`, `lsun-scene`, `fashion1M`, `imagenet`, etc.
+- **Folder `src`**, file `extract_feats.py`: Change the `base_task` dataset. See `data_utils.py` for options. This parameter can be changed to other datasets given by constant.py dataset array.
 
 If you do not have the dataset, you can modify `src/data_utils.py` for the related dataset and add `download=True` like this:
 
