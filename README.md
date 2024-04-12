@@ -88,25 +88,3 @@ python zshot.py --dataset=food-101 --model=ClipViTL14 --experiment=gpt --label-s
 ```
 
 See the `src/constants.py` file for valid inputs for each argument in the command.
-
----------------------
-I put the food-101 dataset in codes and updated with new packages.
-config needed:
-folder config. file config.yaml  : path and arch
-folder config/datamodule file data.yaml : batch size if your gpu does not support should change 64 to 32. also change src/datamodule.py (you need to change two parameters from 64 to 32).
-folder src file extract_feats.py change base_task dataset. see from data_utils.py. this parameters can be changed such as: cifar100, fruits360, eurosat, lsun-scene, fashion1M, imagenet, ....
-if you do not have the dataset, you can change src/data_utils.py related dataset and add download=true like this but:
-    elif dataset.lower() == "eurosat":
-        data = esat_idx(data_dir, transform = transform, download=True)
-
- after download you need to extract it manually.
- ------
- Overall:
- 1-run.py will test your dataset and create a folder of arch like ClipViTL14 in the work direction like. It has a npz format.
- 2-zshot.py will create a file in outputs folder to show you report like this:
- Superclass: 93.87%
-CHiLSNoRW: 90.83%
-CHiLS: 93.79%
-
- 
-
