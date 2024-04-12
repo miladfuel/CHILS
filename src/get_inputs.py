@@ -128,6 +128,8 @@ def get_inputs(args):
     elif args.dataset == 'food-101':
         data = np.load(features_file % 'food-101')
         features, labels, outputs, indices = data["features"], data["labels"], data["outputs"], data["indices"]
+        print("Label range:", labels.min(), labels.max())
+        print("Unique labels before processing:", np.unique(labels))
         datad = Imagenet_Folder_with_indices(f'{args.data_dir}/food-101/images/')
         _, breeds_idx = datad.find_classes(f'{args.data_dir}/food-101/images/')
         breeds_idx = {" ".join(k.split("_")): v for k,v in breeds_idx.items()}

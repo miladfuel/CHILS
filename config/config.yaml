@@ -7,18 +7,25 @@ defaults:
   - hydra: default.yaml
   - _self_
 
+trainer:
+  _target_: pytorch_lightning.Trainer
+  max_epochs: ${models.max_epochs}
+  devices: 1
+  accelerator: 'gpu'
+
 work_dir: ${hydra:runtime.cwd}
 data_dir: ${data_loc}
 log_dir: ${work_dir}/${log_loc}
 
 # path to folder with data
-data_loc: "INSERT PATH HERE"
+data_loc: "/home/milad/CHILS/data"
 log_loc: logs
 
 # Additional hyperparams
 seed: 42
-source_dataset: "fashion-mnist"
+source_dataset: "food-101"
 arch: "ClipViTL14"
 pretrained: True
-base_task: "fashion-mnist"
+base_task: "food-101"
 num_classes: 1000
+

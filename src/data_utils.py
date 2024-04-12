@@ -1,6 +1,7 @@
 from torchvision.datasets import CIFAR10, CIFAR100, FashionMNIST, Food101, EuroSAT, ImageNet
 import torchvision
 from torchvision import transforms
+from torch.utils.data import DataLoader
 from typing import Callable, Optional, List
 from torch.utils.data import Subset
 import numpy as np
@@ -462,7 +463,17 @@ def get_dataset(data_dir, dataset, train, transform):
     elif dataset.lower() == "fruits360":
         data = Imagenet_Folder_with_indices(data_dir + "/fruits-360/Test", transform = transform)
     elif dataset.lower() == "food-101":
-        data = f101_idx(data_dir, transform = transform, split='test') 
+        data = f101_idx(data_dir, transform = transform, split='test')
+        data_loader = DataLoader(data, batch_size=1, shuffle=False)
+        first_batch = next(iter(data_loader))
+        print("First batch from data_loader:", first_batch)
+        print("Type of first batch:", type(first_batch))
+        print("Length of first batch:", len(first_batch))
+        if isinstance(first_batch, tuple) or isinstance(first_batch, list):
+            print("First element type:", type(first_batch[0]))
+            print("Second element type:", type(first_batch[1]))
+        labels = np.array([label.item() for _, label, _ in data_loader])  # Use .item() to convert tensor to scalar
+        print("Label range for Food-101 dataset:", labels.min(), labels.max())
     elif dataset.lower() == "resisc45":
         data = r45_idx(data_dir + '/RESISC45', transforms = transform, split='val') 
     elif dataset.lower() == "eurosat":

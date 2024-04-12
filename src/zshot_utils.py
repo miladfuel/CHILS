@@ -306,6 +306,7 @@ def run(clip_mod, features, labels, sub2super, breeds_classes, indices, args):
         preds_d['chils_wrong_idx'] = np.where((sup_01 == 1) & (conf_01 == 0))[0]
         preds_d['sup_wrong_idx'] = np.where((sup_01 == 0) & (conf_01 == 1))[0]
         idx2sup = {i: x for i,x in enumerate(breeds_classes)}
+        print(idx2sup.keys())
         preds_d['labels'] = [idx2sup[x] for x in labels]
         preds_d['super_preds'] = [idx2sup[x] for x in super_preds]
         preds_d['conf_preds'] = [idx2sup[x] for x in conf_preds]
@@ -449,9 +450,12 @@ def prep_data(data, args, idir):
     data_dir = args.data_dir
     features, labels, outputs, indices = data["features"], data["labels"], data["outputs"], data["indices"]
     idx, label_map = get_idx(data_dir, dataset, labels, idir)
+    print("Label map:", label_map)
     label_map = {k:v for k,v in sorted(label_map.items(), key=lambda x:(x[1], x[0]))}
     features = features[idx]
     labels = transform_labels(label_map, labels[idx])
+    print("Transformed labels range:", labels.min(), labels.max())
+    print("Unique labels after transformation:", np.unique(labels))
     outputs = outputs[idx]
     indices = indices[idx]
     return features, labels, outputs, indices

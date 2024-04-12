@@ -17,8 +17,8 @@ class DataModule(pl.LightningDataModule):
     def __init__(
         self,
         data_dir: str = "./",
-        target_dataset: str = "Imagenet",
-        batch_size: int = 128,
+        target_dataset: str = "food-101",
+        batch_size: int = 64,
         num_classes: int = 1000,
         clip_transform: str = 'ClipViTL14'
     ):
@@ -73,7 +73,7 @@ class DataModule(pl.LightningDataModule):
         
         dataloaders = DataLoader(
                 self.train_dataset, 
-                batch_size=128, 
+                batch_size=64, 
                 shuffle=True, 
                 num_workers=4, 
                 pin_memory=True
@@ -88,7 +88,7 @@ class DataModule(pl.LightningDataModule):
         for i, dataset in enumerate(self.target_dataset): 
             dataloaders.append(DataLoader(
                 self.test_dataset[i], 
-                batch_size=128, 
+                batch_size=64, 
                 shuffle=False, 
                 num_workers=4, 
                 pin_memory=True
