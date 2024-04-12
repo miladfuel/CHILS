@@ -18,7 +18,7 @@ elif dataset.lower() == "eurosat":
     data = esat_idx(data_dir, transform=transform, download=True)
 ```
 
-After downloading, you need to extract it manually (right click and choose extract here).
+After downloading, if program did not extract it, you need to extract it manually (right click and choose extract here).
 
  ------
 
