@@ -15,14 +15,13 @@ Please refer to the original author's README after reviewing the following notes
 - **h.** Ran `zshot.py` using the following command: `python zshot.py --dataset=food-101 --model=ClipViTL14 --experiment=gpt --label-set-size=10 --data-dir=/home/milad/CHILS/data --out-dir=/home/milad/CHILS/outputs`
 - **i.** Modified the label set and dataset, re-ran the scripts, and compared outputs.
 
-<<<<<<< HEAD
 ### Configuration needed:
 - **Folder `config`**, file `config.yaml`: Specify the path and architecture.
 - **Folder `config/datamodule`**, file `data.yaml`: If your GPU does not support a batch size of 64, change it to 32. Also, change `src/datamodule.py` (you need to change two parameters from 64 to 32).
 - **Folder `src`**, file `extract_feats.py`: Change the `base_task` dataset. See `data_utils.py` for options. This parameter can be changed to other datasets given by constant.py dataset array.
 =======
 I have also added the `sea life` dataset, renamed to `food-101`, to demonstrate using external datasets outside of the standard PyTorch datasets.
->>>>>>> 307e20c (Resolved merge conflicts)
+
 
 ### Quick Start:
 If you want to quickly run the project without extensive setup:
@@ -67,7 +66,6 @@ To run the scripts:
 These metrics illustrate the resilience and adaptability of the model across various levels of classification detail.
 ```
 
-<<<<<<< HEAD
 After downloading, if program did not extract it, you need to extract it manually (right click and choose extract here).
 
  ------
