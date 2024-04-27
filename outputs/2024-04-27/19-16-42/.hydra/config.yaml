@@ -1,0 +1,42 @@
+trainer:
+  _target_: pytorch_lightning.Trainer
+  max_epochs: ${models.max_epochs}
+  devices: 1
+  accelerator: gpu
+datamodule:
+  _target_: src.datamodule.DataModule
+  data_dir: ${data_dir}
+  target_dataset: ${source_dataset}
+  batch_size: 64
+  num_classes: ${num_classes}
+  clip_transform: ${arch}
+models:
+  _target_: src.extract_feats.EvalNet
+  arch: ${arch}
+  pretrained: ${pretrained}
+  retrain: false
+  max_epochs: 1
+  base_task: ${base_task}
+  work_dir: ${work_dir}
+  hash: ${logger.group}
+  target_dataset: ${datamodule.target_dataset}
+logger:
+  _target_: pytorch_lightning.loggers.wandb.WandbLogger
+  project: clip-hierarchy
+  save_dir: .
+  offline: false
+  log_model: false
+  group: ''
+  tags: null
+  name: ${source_dataset}_
+work_dir: ${hydra:runtime.cwd}
+data_dir: ${data_loc}
+log_dir: ${work_dir}/${log_loc}
+data_loc: /home/milad/CHILS/data
+log_loc: logs
+seed: 42
+source_dataset: food-101
+arch: ClipViTL14
+pretrained: true
+base_task: food-101
+num_classes: 1000

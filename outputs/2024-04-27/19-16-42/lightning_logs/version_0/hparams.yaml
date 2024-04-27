@@ -1,0 +1,11 @@
+trainer:
+  devices: 1
+  accelerator: gpu
+models:
+  retrain: false
+  max_epochs: 1
+datamodule:
+  batch_size: 64
+source_dataset: food-101
+arch: ClipViTL14
+num_classes: 1000

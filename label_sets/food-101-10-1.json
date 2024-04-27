@@ -1,0 +1,51 @@
+{
+  "bivalves": [
+    "Cockle",
+    "Quahog",
+    "Scallop",
+    "Mussel",
+    "Giant clam"
+  ],
+  "corals": [
+    "Brain coral",
+    "Staghorn coral",
+    "Bubble coral",
+    "Elkhorn coral",
+    "Fire coral"
+  ],
+  "crabs": [
+    "Blue crab",
+    "Hermit crab",
+    "Green Crab",
+    "Dungeness crab",
+    "Fiddler crab"
+  ],
+  "dolphin": [
+    "Bottlenose dolphin",
+    "Common dolphin",
+    "Pacific white-sided dolphin",
+    "Spinner dolphin",
+    "Dusky dolphin"
+  ],
+  "eel": [
+    "Moray eel",
+    "Garden eel",
+    "Conger eel",
+    "Ribbon eel",
+    "Zebra moray"
+  ],
+  "fish": [
+    "Clownfish",
+    "Butterfly Fish",
+    "Angelfish",
+    "Lionfish",
+    "Swordfish"
+  ],
+  "jellyfish": [
+    "Moon jellyfish",
+    "Lion's mane jellyfish",
+    "Golden Jelly",
+    "Sea Nettle",
+    "Barrel Jellyfish"
+  ]
+}
