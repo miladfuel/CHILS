@@ -135,7 +135,6 @@ python zshot.py --dataset=food-101 --model=ClipViTL14 --experiment=gpt --label-s
 ```
 
 See the `src/constants.py` file for valid inputs for each argument in the command.
-<<<<<<< HEAD
+
 =======
 
->>>>>>> 307e20c (Resolved merge conflicts)
